@@ -28,8 +28,8 @@ Get-Command -Module Az.Compute -Noun AzVM
 Get-AzResourceGroup
 
 Get-AzVM
-Get-AzVM -status | ft name, powerstate -AutoSize
-Get-AzVM -status | where {$_.powerstate -ne "VM Running"}
+Get-AzVM -status | Format-Table name, powerstate -AutoSize
+Get-AzVM -status | Where-Object {$_.powerstate -ne "VM Running"}
 
 #Look at secrets
 (Get-AzKeyVaultSecret –VaultName 'SavKeyVault' `
